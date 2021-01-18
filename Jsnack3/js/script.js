@@ -50,7 +50,7 @@ var zucchine = [
   },
   {
     varieta : 'nami',
-    peso : 4,
+    peso : 25,
     lunghezzaCm : 15,
   },
 ];
@@ -66,19 +66,29 @@ var piuDi15Cm = [];
 //   }
 // }
 
+//*** con questo ciclo ***
 for (var i = 0; i < zucchine.length; i++) {
-  for (var key in zucchine) {
-
-    if (zucchine[i].lunghezzaCm < 15) {
-      menoDi15Cm.push(zucchine[key][i]);
-    } else {
-      piuDi15Cm.push(zucchine[i]);
-    }
+  if (zucchine[i].lunghezzaCm < 15) {
+    menoDi15Cm.push(zucchine[i]);
+  } else {
+    piuDi15Cm.push(zucchine[i]);
   }
 }
+console.log(menoDi15Cm);
+console.log(piuDi15Cm);
 
 
+// somma zucchine inferiori a 15 cm
+var temporanea = menoDi15Cm[0].peso;
+for (var i = 1; i < menoDi15Cm.length; i++) {
+  temporanea += menoDi15Cm[i].peso;
+}
+console.log('il peso delle zucchine inferiori a 15 cm è: ' + temporanea);
 
 
-console.log('meno di 15 cm: ' + menoDi15Cm);
-console.log('più o uguale di 15 cm: ' + piuDi15Cm);
+// somma zucchine superiori o uguali a 15 cm
+temporanea = piuDi15Cm[0].peso;
+for (var i = 1; i < piuDi15Cm.length; i++) {
+  temporanea += piuDi15Cm[i].peso;
+}
+console.log('il peso delle zucchine superiori o uguali a 15 cm è: ' + temporanea);
